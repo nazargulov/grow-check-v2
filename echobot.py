@@ -24,6 +24,8 @@ pip3 install requests
 pip3 install selenium
 brew install chromedriver --cask
 
+pip install PyVirtualDisplay
+3
 """
 
 import logging
@@ -47,7 +49,26 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-driver = webdriver.Chrome("chromedriver")
+
+# https://blog.testproject.io/2018/02/20/chrome-headless-selenium-python-linux-servers/
+#install Xvfb
+#sudo apt-get install xvfb
+
+#set display number to :99
+#Xvfb :99 -ac &
+#export DISPLAY=:99
+
+# Option 1 - with ChromeOptions
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox') # required when running as root user. otherwise you would get no sandbox errors. 
+#driver = webdriver.Chrome("chromedriver", chrome_options=chrome_options,
+#  service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
+# Option 2 - with pyvirtualdisplay
+#from pyvirtualdisplay import Display 
+#display = Display(visible=0, size=(1024, 768)) 
+#display.start() 
+driver = webdriver.Chrome("chromedriver", options=chrome_options)
 screenshot_name = "screenshot.png"
 
 
