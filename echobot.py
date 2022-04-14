@@ -70,6 +70,7 @@ chrome_options.add_argument('--no-sandbox') # required when running as root user
 #display.start() 
 driver = webdriver.Chrome("chromedriver", options=chrome_options)
 screenshot_name = "screenshot.png"
+chat_id = "-1001620964109"
 
 
 # Define a few command handlers. These usually take the two arguments update and
@@ -156,9 +157,9 @@ def callback_hour(context: CallbackContext):
 
     now_utc = datetime.now(timezone.utc) # 7 utc = 10 msk
     if now_utc.hour == 7 or result['error']:
-        context.bot.send_message(chat_id='-630766114', text=result['body'])
+        context.bot.send_message(chat_id=chat_id, text=result['body'])
         with open(screenshot_name, 'rb') as f:
-            context.bot.send_photo(chat_id='-630766114', photo=f, timeout=50)
+            context.bot.send_photo(chat_id=chat_id, photo=f, timeout=50)
 
 def main() -> None:
     """Start the bot."""
