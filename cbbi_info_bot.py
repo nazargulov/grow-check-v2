@@ -89,7 +89,7 @@ def callback_day(context: CallbackContext):
 def main() -> None:
     """Start the bot."""
     # Create the Updater and pass it your bot's token.
-    updater = Updater("5290196846:AAETI6HGS0FzQriQZvhSZFEpOzpzpnntNus")
+    updater = Updater("")
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
