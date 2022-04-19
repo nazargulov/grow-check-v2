@@ -164,7 +164,7 @@ def callback_hour(context: CallbackContext):
 def main() -> None:
     """Start the bot."""
     # Create the Updater and pass it your bot's token.
-    updater = Updater("5110310724:AAGS09JnTRMd1jiJx0fvCrTEZXnJC3D8ALA", use_context=True)
+    updater = Updater("", use_context=True)
     job = updater.job_queue
 
     #job.run_once(callback, 1)
