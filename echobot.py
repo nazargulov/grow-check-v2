@@ -70,8 +70,8 @@ chrome_options.add_argument('--no-sandbox') # required when running as root user
 #from pyvirtualdisplay import Display 
 #display = Display(visible=0, size=(1024, 768)) 
 #display.start() 
-#driver = webdriver.Chrome("chromedriver", options=chrome_options)
-driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+driver = webdriver.Chrome("/usr/bin/chromedriver", options=chrome_options)
+#driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
 screenshot_name = "screenshot.png"
 chat_id = "-1001620964109"
 
