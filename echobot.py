@@ -42,6 +42,8 @@ from selenium.webdriver.common.keys import Keys
 #from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 
+from webdriver_manager.chrome import ChromeDriverManager
+
 # Enable logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
@@ -68,7 +70,8 @@ chrome_options.add_argument('--no-sandbox') # required when running as root user
 #from pyvirtualdisplay import Display 
 #display = Display(visible=0, size=(1024, 768)) 
 #display.start() 
-driver = webdriver.Chrome("chromedriver", options=chrome_options)
+#driver = webdriver.Chrome("chromedriver", options=chrome_options)
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
 screenshot_name = "screenshot.png"
 chat_id = "-1001620964109"
 
